@@ -78,8 +78,8 @@ vmlinux = context.modules['kernel']
 print(f"Available symbol tables: {list(context.symbol_space.keys())}")
 
 # Find and examine processes
-for proc in pslist.PsList.list_processes(context, 'kernel', 'primary'):
-    print(f"PID: {proc.UniqueProcessId}, Name: {proc.ImageFileName}")
+from volatility3.plugins.windows import pslist
+display_plugin_output(pslist.PsList, kernel = self.config['kernel'])
 ```
 
 This exploration helps you understand the memory layout and identify the data structures your plugin will need to access.
