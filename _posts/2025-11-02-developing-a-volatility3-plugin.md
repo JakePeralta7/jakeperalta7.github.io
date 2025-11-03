@@ -61,7 +61,7 @@ Before writing a plugin, it's crucial to understand the data structures you'll b
 Start VolShell with your memory dump:
 
 ```bash
-python vol.py -f sample.vmem volshell
+python volshell.py -f sample.vmem
 ```
 
 Once in the shell, explore the available layers and symbol tables:
