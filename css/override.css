@@ -9,6 +9,10 @@
   --code-bg: #f6f8fa;
   --nav-hover-bg: #f0f0f0;
   --shadow-color: rgba(0, 0, 0, 0.1);
+  --tag-bg: #e1e4e8;
+  --tag-text: #24292e;
+  --tag-hover-bg: #0366d6;
+  --tag-hover-text: #ffffff;
 }
 
 :root[data-theme="dark"] {
@@ -21,6 +25,10 @@
   --code-bg: #161b22;
   --nav-hover-bg: #21262d;
   --shadow-color: rgba(0, 0, 0, 0.3);
+  --tag-bg: #30363d;
+  --tag-text: #c9d1d9;
+  --tag-hover-bg: #58a6ff;
+  --tag-hover-text: #0d1117;
 }
 
 /* Apply theme colors */
@@ -189,4 +197,64 @@ hr {
   padding: 1em 0;
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
+}
+
+/* Post Tags Styling */
+.post-tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin-left: 0.5em;
+  align-items: center;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.25em 0.75em;
+  background-color: var(--tag-bg);
+  color: var(--tag-text);
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.tag:hover {
+  background-color: var(--tag-hover-bg);
+  color: var(--tag-hover-text);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px var(--shadow-color);
+  border-color: var(--tag-hover-bg);
+}
+
+.tag:active {
+  transform: translateY(0);
+}
+
+/* Tag link styling */
+a.tag {
+  color: var(--tag-text);
+}
+
+a.tag:hover {
+  color: var(--tag-hover-text);
+  text-decoration: none;
+}
+
+/* Tags in post list (home page) */
+.post-list .post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  margin-top: 0.5em;
+  margin-left: 0;
+}
+
+.post-list .tag {
+  font-size: 0.75em;
+  padding: 0.2em 0.6em;
+}
 }
