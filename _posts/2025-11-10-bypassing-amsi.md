@@ -133,6 +133,9 @@ After we have some understanding of the workflow, let's explore some ways to bre
 |AMSI DLL Hijacking|Detect image load of amsi.dll from location other than "C:\Windows\System32\amsi.dll" or "C:\Windows\SysWOW64\amsi.dll"|
 
 ### References
+
 [MSDN - Antimalware Scan Interface (AMSI)](https://learn.microsoft.com/en-us/windows/win32/AMSI/antimalware-scan-interface-portal)
+
 [MSDN - AMSI API](https://learn.microsoft.com/en-us/windows/win32/api/amsi)
+
 [CrowdStrike - Patchless AMSI Bypass](https://www.crowdstrike.com/en-us/blog/crowdstrike-investigates-threat-of-patchless-amsi-bypass-attacks/)
