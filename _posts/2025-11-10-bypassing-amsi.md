@@ -12,9 +12,9 @@ To integrate AMSI, the interprter's developer needs to call the AMSI scan API wi
 
 ### Architecture
 
-Consumer: Scripting Engine (interpreter), can be any application.
+**Consumer**: Scripting Engine (interpreter), can be any application.
 
-Provider: Security Products registered to AMSI.
+**Provider**: Security Products registered to AMSI.
 
 Windows provides the glue - amsi.dll that interfaces the AMSI API.
 
