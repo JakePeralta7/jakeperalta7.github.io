@@ -131,6 +131,8 @@ After we have some understanding of the workflow, let's explore some ways to bre
 |---|---|
 |AMSI Patching|Detect if there is a private copy of AMSI functions in a process|
 |AMSI DLL Hijacking|Detect image load of amsi.dll from location other than "C:\Windows\System32\amsi.dll" or "C:\Windows\SysWOW64\amsi.dll"|
+|Removing the Provider in the Registry|Detect Registry changes|
+|Hardware Breakpoints and VEH|Detect using the debugregisters plugin in Volatility3|
 
 ### References
 
