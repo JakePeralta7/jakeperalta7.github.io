@@ -100,6 +100,39 @@ int main(void)
 }
 ```
 
+### Let's Bypass!
+
+After we have some understanding of the workflow, let's explore some ways to break it.
+
+1. **Detection Evasion**
+
+    For example, the AMSI provider has detection for `Write-Host "This is a Malware"`, we can run `"erawlaM a si sihT" | ForEach-Object { $a=$_.ToCharArray(); [array]::Reverse($a); -join $a } | Write-Host` instead and evade that detection.
+
+2. **Disabling the Consumer**
+
+   Because the AMSI functions are in user mode memory space, we can change the way it operates and render it useless.
+   - We can patch the `AmsiScanBuffer` and `AmsiScanString` and always return clean result.
+   - We can set hardware breakpoint on `AmsiScanBuffer` and `AmsiScanString` and VEH to handle the exception and return clean result.
+   - We can find the AMSI Context address and call `AmsiUninitialize`.
+   - We can hijack the AMSI dll
+  
+3. **Disabling the Provider**
+
+   To register as an AMSI provider, you need to create a CLSID pointing to your DLL and key under `HKLM\Software\Microsoft\AMSI\Providers` named your CLSID.
+   So, we can just remove or change that before opening the interpreter.
+
+5. **Use PowerShell v2**
+
+   There is no AMSI in PowerShell v2, in the same spirit we can compile our own version of later versions of PowerShell without importing AMSI.
+
+### Detection
+
+|Scenario|How to Detect?|
+|---|---|
+|AMSI Patching|Detect if there is a private copy of AMSI functions in a process|
+|AMSI DLL Hijacking|Detect image load of amsi.dll from location other than "C:\Windows\System32\amsi.dll" or "C:\Windows\SysWOW64\amsi.dll"|
+
 ### References
 [MSDN - Antimalware Scan Interface (AMSI)](https://learn.microsoft.com/en-us/windows/win32/AMSI/antimalware-scan-interface-portal)
+[MSDN - AMSI API](https://learn.microsoft.com/en-us/windows/win32/api/amsi)
 [CrowdStrike - Patchless AMSI Bypass](https://www.crowdstrike.com/en-us/blog/crowdstrike-investigates-threat-of-patchless-amsi-bypass-attacks/)
