@@ -1,6 +1,5 @@
 ---
 layout: post
-date: 2025-11-02
 tags: [malware, windows, amsi]
 ---
 
