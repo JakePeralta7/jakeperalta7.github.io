@@ -1,6 +1,5 @@
 ---
 layout: post
-date: 2025-11-02
 tags: [volatility3, plugin-development, forensics, malware-analysis]
 ---
 
