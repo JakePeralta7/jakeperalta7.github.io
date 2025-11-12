@@ -284,21 +284,24 @@ thead {
   transition: background-color 0.3s ease;
 }
 
-th {
+th,
+.post-content table th {
   padding: 0.75em 1em;
   text-align: left;
   font-weight: 600;
   border-bottom: 2px solid var(--table-border-color);
   border-right: 1px solid var(--table-border-color);
-  color: var(--text-color);
+  color: var(--text-color) !important;
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
-th:last-child {
+th:last-child,
+.post-content table th:last-child {
   border-right: none;
 }
 
-td {
+td,
+.post-content table td {
   padding: 0.75em 1em;
   border-bottom: 1px solid var(--table-border-color);
   border-right: 1px solid var(--table-border-color);
@@ -306,7 +309,8 @@ td {
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
-td:last-child {
+td:last-child,
+.post-content table td:last-child {
   border-right: none;
 }
 
