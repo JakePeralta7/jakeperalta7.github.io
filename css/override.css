@@ -13,6 +13,10 @@
   --tag-text: #24292e;
   --tag-hover-bg: #0366d6;
   --tag-hover-text: #ffffff;
+  --table-border-color: #d0d7de;
+  --table-header-bg: #f6f8fa;
+  --table-row-bg: #ffffff;
+  --table-row-alt-bg: #f6f8fa;
 }
 
 :root[data-theme="dark"] {
@@ -29,6 +33,10 @@
   --tag-text: #c9d1d9;
   --tag-hover-bg: #58a6ff;
   --tag-hover-text: #0d1117;
+  --table-border-color: #30363d;
+  --table-header-bg: #161b22;
+  --table-row-bg: #0d1117;
+  --table-row-alt-bg: #161b22;
 }
 
 /* Apply theme colors */
@@ -257,4 +265,63 @@ a.tag:hover {
   font-size: 0.75em;
   padding: 0.2em 0.6em;
 }
+
+/* Table Styles for Markdown Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5em 0;
+  overflow-x: auto;
+  display: block;
+  background-color: var(--table-row-bg);
+  border: 1px solid var(--table-border-color);
+  border-radius: 6px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+thead {
+  background-color: var(--table-header-bg);
+  transition: background-color 0.3s ease;
+}
+
+th {
+  padding: 0.75em 1em;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid var(--table-border-color);
+  border-right: 1px solid var(--table-border-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+th:last-child {
+  border-right: none;
+}
+
+td {
+  padding: 0.75em 1em;
+  border-bottom: 1px solid var(--table-border-color);
+  border-right: 1px solid var(--table-border-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+td:last-child {
+  border-right: none;
+}
+
+tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--table-row-alt-bg);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: var(--nav-hover-bg);
 }
